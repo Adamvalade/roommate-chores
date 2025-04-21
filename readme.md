@@ -10,23 +10,25 @@ Prevents duplicate runs using timestamp tracking
 Toggle system to enable/disable execution
 Dynamically formats the week range (e.g., 04-22 - 04-28)
 Compatible with cron jobs for scheduled automation
+
 🛠️ Technologies Used
 
 Python 3
 smtplib + email.message for email automation
 File I/O for rotation and state persistence
 datetime for week handling and timing logic
+
 🗂️ File Overview
 
 roommate_chores.py — main script
 ChoresIndex.txt — tracks current rotation index
 last_run_time.txt — stores the timestamp of the last execution
 Enabled.txt — acts as a manual toggle (Y to run, N to skip)
+
 🕒 Running with a Cron Job (macOS/Linux)
 
-To run the script every Sunday at 12 PM:
+Use bash run the script every Sunday at 12 PM:
 0 12 * * 0 /usr/bin/python3 /path/to/roommate_chores.py
-
 You can edit your crontab with:
 crontab -e
 
@@ -39,7 +41,6 @@ Instead, use a .env file and load credentials via environment variables like thi
 
 import os
 password = os.getenv('EMAIL_PASSWORD')
-
 Then run your script like this:
 EMAIL_PASSWORD=your-password python3 roommate_chores.py
 
